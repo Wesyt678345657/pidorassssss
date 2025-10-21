@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getProductBySlug } from '@/data/products';
+import { getProductBySlug, products } from '@/data/products';
 import { AddToCartButton } from './sections';
 import { formatCurrencyRub } from '../../../lib/currency';
 
@@ -21,3 +21,12 @@ export default function ProductDetail({ params }: { params: { slug: string } }) 
 		</div>
 	);
 }
+
+// Для статического экспорта Next.js (output: 'export') необходимо явно
+// перечислить все допустимые значения динамического параметра [slug].
+export function generateStaticParams() {
+    return products.map(p => ({ slug: p.slug }));
+}
+
+// Запрещаем неизвестные значения slug во время билда экспорта
+export const dynamicParams = false;
