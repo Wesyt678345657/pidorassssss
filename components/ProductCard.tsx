@@ -1,6 +1,5 @@
 "use client";
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/data/products';
 import { useCart } from '@/context/CartContext';
@@ -19,13 +18,10 @@ export default function ProductCard({ product }: { product: Product }) {
                 </div>
             )}
             <Link href={`/products/${product.slug}`} style={{display:'block'}}>
-                <Image
+                <img
                     src={imageSrc}
                     alt={product.title}
-                    width={600}
-                    height={400}
                     style={{width:'100%', height: 180, objectFit:'cover'}}
-                    unoptimized={true}
                 />
 			</Link>
 			<div style={{padding: 14, display:'grid', gap: 8}}>
