@@ -65,18 +65,6 @@ export const products: Product[] = [
         discountPercent: 15,
 	},
 	{
-		id: '26',
-		slug: 'fresh-grapes',
-		title: 'Виноград свежий',
-		description: 'Сладкий, без косточек, идеальный для перекуса',
-		price: 350,
-		image: 'https://images.unsplash.com/photo-1537640538966-79f369143b8f?q=80&w=1200&auto=format&fit=crop',
-		category: 'Фрукты',
-		farmer: 'Виноградник "Солнечный"',
-		unit: 'кг',
-        isNew: true,
-	},
-	{
 		id: '2',
 		slug: 'goat-milk',
 		title: 'Козье молоко',

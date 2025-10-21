@@ -25,8 +25,7 @@ export default function ProductCard({ product }: { product: Product }) {
                     width={600}
                     height={400}
                     style={{width:'100%', height: 180, objectFit:'cover'}}
-                    placeholder="blur"
-                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMzAwJyBoZWlnaHQ9JzIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPSMnIG9wYWNpdHk9JzAuMScvPjwvc3ZnPg=="
+                    unoptimized={true}
                 />
 			</Link>
 			<div style={{padding: 14, display:'grid', gap: 8}}>
