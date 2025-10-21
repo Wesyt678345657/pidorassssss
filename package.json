@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start",
     "push": "git add -A && (git commit -m \"chore: update\" || echo No changes) && git push origin main",
     "lint": "next lint"
