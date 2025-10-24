@@ -1,13 +1,13 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Product } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import { formatCurrencyRub } from '../lib/currency';
 
 export default function ProductCard({ product }: { product: Product }) {
 	const { addToCart } = useCart();
-    const imageSrc = product.image || 'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop';
 	return (
         <article className="card" style={{position:'relative'}}>
             {(product.isNew || product.isHit || product.discountPercent) && (
@@ -18,9 +18,11 @@ export default function ProductCard({ product }: { product: Product }) {
                 </div>
             )}
             <Link href={`/products/${product.slug}`} style={{display:'block'}}>
-                <img
-                    src={imageSrc}
+                <Image
+                    src={product.image}
                     alt={product.title}
+                    width={400}
+                    height={180}
                     style={{width:'100%', height: 180, objectFit:'cover'}}
                 />
 			</Link>
