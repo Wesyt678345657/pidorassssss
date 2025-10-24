@@ -15,7 +15,13 @@ export default function HomePage() {
                         <Link className="btn" href="/cart">Корзина</Link>
                     </div>
                 </div>
-                <div className="skeleton" style={{borderRadius:12, height:160}} />
+                <Image 
+                    src="https://i.pinimg.com/originals/69/d9/d1/69d9d157c16cd2bb9f21bc119413d529.gif"
+                    alt="Фермерские продукты"
+                    width={400}
+                    height={160}
+                    style={{borderRadius:12, objectFit:'cover'}}
+                />
             </section>
             
             <section style={{marginTop: 28}}>
