@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
 	title: 'Фермерский Маркет — свежие фермерские продукты',
@@ -34,6 +35,7 @@ export default function RootLayout({
 				<CartProvider>
 					<Header />
 					<main className="container">{children}</main>
+					<Footer />
 				</CartProvider>
 			</body>
 		</html>

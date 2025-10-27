@@ -3,11 +3,16 @@
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { useRouter } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { products } from '@/data/products';
 
 export default function Header() {
     const { totalItems } = useCart();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
     const router = useRouter();
     const [query, setQuery] = useState('');
     const [focused, setFocused] = useState(false);
@@ -71,7 +76,7 @@ export default function Header() {
                     <Link href="/cart" className="btn" style={{position:'relative', borderRadius:12, display:'inline-flex', alignItems:'center', gap:8}} aria-label="Корзина">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14.26l.03.14c.14.73.78 1.26 1.53 1.26h7.58c.69 0 1.3-.44 1.5-1.1l2.19-7.16A1 1 0 0019 6H7.21l-.2-1H3v2h2l2.6 9.26z"/></svg>
                         <span>Корзина</span>
-                        {totalItems > 0 && (
+                        {mounted && totalItems > 0 && (
                             <span style={{position:'absolute', top:-6, right:-6, background:'#ff4757', color:'#fff', borderRadius:12, padding:'2px 6px', fontSize:12}}>
                                 {totalItems}
                             </span>
