@@ -50,7 +50,7 @@ async function addOrderToSheets(orderData: any) {
           values,
         },
       });
-    } catch (error) {
+    } catch (error: unknown) {
       // Если не получилось, пробуем создать заголовки и записать данные
       console.log('Попытка создать заголовки и записать данные...');
       
@@ -80,9 +80,10 @@ async function addOrderToSheets(orderData: any) {
     }
 
     return { success: true };
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Ошибка при записи в Google Sheets:', error);
-    return { success: false, error: error.message };
+    const message = error instanceof Error ? error.message : String(error);
+    return { success: false, error: message };
   }
 }
 
@@ -121,10 +122,11 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Ошибка API заказов:', error);
+    const message = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { error: 'Внутренняя ошибка сервера', details: error.message },
+      { error: 'Внутренняя ошибка сервера', details: message },
       { status: 500 }
     );
   }
